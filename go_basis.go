@@ -2,10 +2,20 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 // 変数宣言
 var helloWorld string = "hello world from Go!"
+
+// const(定数)ある
+const constant string = "CONST!"
+
+// 変数、関数はまとめて指定可能
+// const (
+// 	foo = "foo"
+// 	buzz = "buzz"
+// )
 
 // &変数名で変数のメモリアドレスを取得できる
 // pointer変数
@@ -27,10 +37,35 @@ var person struct {
 	weight int
 }
 
+// type
+type PersonType struct {
+	name string
+	age int
+	gender string
+	weight int
+}
+
+// メソッド
+// メソッドとは、特定の型に関連付けられた関数のこと
+
+func (p PersonType) Greet() {
+	fmt.Println("hello!" + p.name)
+}
+
+// ポインターレシーバ
+// フィールドの値を 直接操作 するようなメソッド
+
+func (p *PersonType) Eat() {
+	(*p).weight += 1
+}
+
+// main関数が動く
 func main() {
 	// 出力
 	fmt.Println(helloWorld)
 	fmt.Println(ptrHelloWorld)
+
+	fmt.Println(constant)
 
 	//pointer関数に*をつけることによって、そのポインタ変数が指しているメモリの内容を参照できる
 	fmt.Println(*ptrHelloWorld)
@@ -51,14 +86,8 @@ func main() {
 	person.weight = 50
 	fmt.Printf("%#v\n", person)
 
-	//type
-	type PersonType struct {
-		name string
-		age int
-		gender string
-		weight int
-	}
 
+	// :=で初期値代入
 	Tom := PersonType {
 		name: "Tom",
 		age: 20,
@@ -71,4 +100,9 @@ func main() {
 	//順番さえ合えばフィールド名は省略可能
 	Josh := PersonType{"Josh", 30, "female", 43}
 	fmt.Printf("%#v\n", Josh)
+
+	Tom.Greet()
+	fmt.Println("eat前" + strconv.Itoa(Tom.weight))
+	Tom.Eat()
+	fmt.Println("eat後" + strconv.Itoa(Tom.weight))
 }
