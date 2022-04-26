@@ -65,10 +65,17 @@ func main() {
 	fmt.Println(helloWorld)
 	fmt.Println(ptrHelloWorld)
 
-	fmt.Println(constant)
-
 	//pointer関数に*をつけることによって、そのポインタ変数が指しているメモリの内容を参照できる
 	fmt.Println(*ptrHelloWorld)
+
+	// 代入
+	helloWorld = "hello world変更"
+	// もしくはpointer変数を使用して代入することも可能
+	// *ptrHelloWorld = "値"
+	fmt.Println(helloWorld)
+
+	fmt.Println(constant)
+
 
 	fmt.Println(i)
 	fmt.Println(ptrI)
