@@ -15,7 +15,6 @@ var ptrHelloWorld *string = &helloWorld
 var i int = 20
 var ptrI *int = &i
 
-
 //構造体(struct)
 //構造体の宣言
 // var 変数名 struct {
