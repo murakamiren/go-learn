@@ -13,6 +13,6 @@ func product(a int,b int) {
 
 func main() {
 	product(2, 10)
-	product(3, 4)
+//	product(3, 4)
 	product(3, 7)
 }
